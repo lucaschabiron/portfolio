@@ -8,13 +8,13 @@ This portfolio showcases my journey as a builder and developer.
 
 ### Features:
 
--**About Me**: Learn more about my journey and passions. 
--**My Projects**: A collection of projects that I've built and contributed to.
--**Blog**: My personal space where I share thoughts, learnings, and experiences.
+- **About Me**: Learn more about my journey and passions.
+- **My Projects**: A collection of projects that I've built and contributed to.
+- **Blog**: My personal space where I share thoughts, learnings, and experiences.
 
 ## Technologies Used
 
--**SvelteKit**: I find SvelteKit to provide a minimalist approach to web development. For a personal portfolio, where rapid development and iterations might be frequent, this simplicity is invaluable. I never used it and wanted to try for this new version of my portfolio.
+- **SvelteKit**: I find SvelteKit to provide a minimalist approach to web development. For a personal portfolio, where rapid development and iterations might be frequent, this simplicity is invaluable. I never used it and wanted to try for this new version of my portfolio.
 
 ## Setup and Running Locally
 
