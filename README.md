@@ -1,38 +1,46 @@
-# create-svelte
+# lucas' Portfolio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Hello and welcome to the repository of my personal portfolio! 👋
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This portfolio showcases my journey as a builder and developer.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Features:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+-**About Me**: Learn more about my journey and passions. -**My Projects**: A collection of projects that I've built and contributed to. -**Blog**: My personal space where I share thoughts, learnings, and experiences.
 
-## Developing
+## Technologies Used
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+-**SvelteKit**: I find SvelteKit to provide a minimalist approach to web development. For a personal portfolio, where rapid development and iterations might be frequent, this simplicity is invaluable. I never used it and wanted to try for this new version of my portfolio.
 
-```bash
-npm run dev
+## Setup and Running Locally
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Clone the repository:
 
-## Building
+   ```bash
+   git clone https://github.com/lucaschabiron/portfolio.git
+   ```
 
-To create a production version of your app:
+2. Navigate to directory and install:
 
-```bash
-npm run build
-```
+   ```bash
+   cd portfolio
+   npm i
+   ```
 
-You can preview the production build with `npm run preview`.
+3. Start local development server:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+   ```bash
+   npm run dev
+   ```
+
+   Now, open your browser and go to http://localhost:3000/ (or the port you've set).
+
+   ## Contributing
+
+   Whie this project is primarly personnal, feel free to open an issue or submit a pull request if you find a bug or have any suggestion.
+
+   ## Connect with me
+
+   If you'd like to connect, feel free to reach out through [Email](mailto:contact@lucaschabiron.com) or follow me on [Twitter](twitter.com/gxxxxxxx)!
