@@ -8,7 +8,9 @@ This portfolio showcases my journey as a builder and developer.
 
 ### Features:
 
--**About Me**: Learn more about my journey and passions. -**My Projects**: A collection of projects that I've built and contributed to. -**Blog**: My personal space where I share thoughts, learnings, and experiences.
+-**About Me**: Learn more about my journey and passions. 
+-**My Projects**: A collection of projects that I've built and contributed to.
+-**Blog**: My personal space where I share thoughts, learnings, and experiences.
 
 ## Technologies Used
 
