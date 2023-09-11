@@ -1,6 +1,8 @@
 <div class="ml-6 w-full">
-	<h1 class="text-2xl font-bold dark:text-white mb-2">lucas 🌌</h1>
-	<h2 class="text-xl font-bold dark:text-white mb-8">builder. developer. learner.</h2>
+	<h1 class="text-3xl font-bold dark:text-white mb-2">lucas 🌌</h1>
+	<h2 class="text-xl text-slate-500 font-bold dark:text-slate-300 mb-8">
+		builder. developer. learner.
+	</h2>
 	<p class="dark:text-white font-sans text-justify">
 		hi, i'm lucas, a passionate <strong>builder</strong> at heart. <br />whether it's creating
 		websites, composing music, or crafting new projects, i thrive on bringing ideas to life. welcome
