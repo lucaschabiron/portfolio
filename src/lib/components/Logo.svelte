@@ -1,1 +1,3 @@
-<img src="/pdp.jpg" class="rounded-full" alt="Logo" width="40px" height="40px" />
+<div class="flex items-center w-10 h-10">
+	<img src="/pdp.jpg" alt="logo" class="w-full rounded-full" />
+</div>

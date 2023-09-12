@@ -10,7 +10,7 @@
 	class="opacity-5 -z-10 w-screen h-screen absolute top-0 left-0 bg-[url('/noisebackground.png')] bg-repeat"
 />
 <div class="min-h-screen p-2 flex">
-	<div class="w-1/3">
+	<div class="max-w-screen md:w-1/3 sm:w-1/2">
 		<Header />
 		<slot />
 	</div>
