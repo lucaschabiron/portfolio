@@ -33,10 +33,8 @@ export const getLatestCommit = async ({ owner, repo, auth }: commitParams): Prom
 	const daysSince = Math.floor(timeSince / (1000 * 60 * 60 * 24));
 	const hoursSince = Math.floor(timeSince / (1000 * 60 * 60));
 	const minutesSince = Math.floor(timeSince / (1000 * 60));
-	const secondsSince = Math.floor(timeSince / 1000);
-	if (daysSince > 0) return `${daysSince} days ago`;
-	if (hoursSince > 0) return `${hoursSince} hours ago`;
-	if (minutesSince > 0) return `${minutesSince} minutes ago`;
-	if (secondsSince > 0) return `${secondsSince} seconds ago`;
+	if (daysSince > 0) return `${daysSince} day${daysSince > 1 ? 's' : ''} ago`;
+	if (hoursSince > 0) return `${hoursSince} hour${hoursSince > 1 ? 's' : ''} ago`;
+	if (minutesSince > 0) return `${minutesSince} minute${minutesSince > 1 ? 's' : ''} ago`;
 	return 'just now';
 };
