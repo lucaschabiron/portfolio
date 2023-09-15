@@ -5,10 +5,8 @@
 	let currentPage = 'home';
 </script>
 
-{#if currentPage === 'home'}
-	<Home />
-{:else if currentPage === 'projects'}
-	<Projects />
-{:else if currentPage === 'blog'}
-	<Blog />
-{/if}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+	<div class="order-1">
+		<Home />
+	</div>
+</div>

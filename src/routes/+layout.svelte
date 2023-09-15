@@ -9,7 +9,7 @@
 />
 <main class="p-safe">
 	<div class="min-h-screen p-2 flex">
-		<div class="w-screen lg:w-1/3 sm:w-1/2">
+		<div class="w-screen flex flex-col">
 			<Header />
 			<slot />
 		</div>
