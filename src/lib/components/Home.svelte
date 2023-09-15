@@ -1,7 +1,7 @@
 <script>
 	import Frame from './Frame.svelte';
 	import CurrentWork from './CurrentWork.svelte';
-	import config from '../../config';
+	import config from '../utils/config';
 </script>
 
 <div class="ml-6 mr-6">
