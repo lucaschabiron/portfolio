@@ -5,11 +5,11 @@
 </script>
 
 <div class="mx-6">
-	<h1 class="text-3xl font-bold dark:text-white mb-2">lucas 🌌</h1>
-	<ul class="flex space-x-4">
-		<li class="text-md font-bold text-slate-700 dark:text-slate-100">builder.</li>
-		<li class="text-md font-bold text-slate-700 dark:text-slate-100">developer.</li>
-		<li class="text-md font-bold text-slate-700 dark:text-slate-100">learner.</li>
+	<h1 class="text-4xl font-bold dark:text-white mb-2">lucas 🌌</h1>
+	<ul class="flex space-x-4 text-lg font-bold text-slate-700 dark:text-slate-100">
+		<li>builder.</li>
+		<li>developer.</li>
+		<li>learner.</li>
 	</ul>
 	<Frame title="about me">
 		<p class="dark:text-white font-sans text-justify mb-2">
