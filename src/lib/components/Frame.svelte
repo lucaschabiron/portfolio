@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string = 'title';
-	export let borderColor: string = 'border-slate-300 dark:border-slate-400';
+	export let borderColor: string = 'border-slate-300 dark:border-slate-700';
 </script>
 
 <div

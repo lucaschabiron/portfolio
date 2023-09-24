@@ -5,7 +5,7 @@
 	import { activeColumn } from '$lib/stores';
 	import { flip } from 'svelte/animate';
 	import { cubicOut } from 'svelte/easing';
-	import { fly, slide } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	let column: string;
 	let windowWidth: number;
 	let sections = ['home', 'projects', 'blog'];
