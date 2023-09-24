@@ -2,66 +2,75 @@
 	import Home from '$lib/components/Home.svelte';
 	import Projects from '$lib/components/Projects.svelte';
 	import Blog from '$lib/components/Blog.svelte';
-	import { slide } from 'svelte/transition';
-	import {activeColumn} from '$lib/stores';
-
+	import { activeColumn } from '$lib/stores';
+	import { flip } from 'svelte/animate';
+	import { cubicOut } from 'svelte/easing';
+	import { fly, slide } from 'svelte/transition';
 	let column: string;
-	activeColumn.subscribe(value => {
-		column = value
+	let windowWidth: number;
+	let sections = ['home', 'projects', 'blog'];
+	activeColumn.subscribe((value) => {
+		column = value;
 	});
 
+	// sections for large devices
+	$: sections =
+		column === 'home'
+			? ['home', 'projects', 'blog']
+			: column === 'projects'
+			? ['projects', 'blog', 'home']
+			: ['blog', 'home', 'projects'];
+
+	// section for small devices
+	$: smSection = sections[0];
 </script>
 
+<svelte:window bind:innerWidth={windowWidth} />
+
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 [transition: all 1s ease-out]">
-	<section
-		in:slide={{duration: 500}}
-		out:slide={{duration: 500}}
-		role="button"
-		class="column {column === 'home' ? 'active order-first' : ''} {column === 'projects' ? 'hidden lg:block' : 'block'} {column === 'blog' ? 'hidden sm:block' : 'block'}"
-		on:click={() => activeColumn.set('home')}
-		tabindex="0"
-		on:keydown={(e) => {
-			if (e.key === 'Enter') {
-				activeColumn.set('home');
-			}
-		}}
-	>
-		<Home />
-	</section>
-	<section
-		in:slide={{duration: 500}}
-		out:slide={{duration: 500}}
-		role="button"
-		class="column {column === 'projects' ? 'active ' : ''} {column === 'home' ? 'hidden sm:block' : 'block'} {column === 'blog' ? 'hidden lg:block' : 'block'}"
-		on:click={() => activeColumn.set('projects')}
-		tabindex="0"
-		on:keydown={(e) => {
-			if (e.key === 'Enter') {
-				activeColumn.set('projects');
-			}
-		}}
-	>
-		<Projects />
-	</section>
-	<section
-		in:slide={{duration: 500}}
-		out:slide={{duration: 500}}
-		role="button"
-		class="column {column === 'blog' ? 'active' : ''} {column === 'home' ? 'hidden lg:block' : 'block'} {column === 'projects' ? 'hidden sm:block' : 'block'}"
-		on:click={() => activeColumn.set('blog')}
-		tabindex="0"
-		on:keydown={(e) => {
-			if (e.key === 'Enter') {
-				activeColumn.set('blog');
-			}
-		}}
-	>
-		<Blog />
-	</section>
+	{#if windowWidth > 640}
+		{#each sections as section (section)}
+			<section
+				animate:flip={{ duration: 700, easing: cubicOut }}
+				role="button"
+				class="column {column === section ? 'active' : ''} {section === sections[1]
+					? 'hidden sm:block'
+					: ''} {section === sections[2] ? 'hidden lg:block' : ''}"
+				on:click={() => activeColumn.set(section)}
+				tabindex="0"
+				on:keydown={(e) => {
+					if (e.key === 'Enter') {
+						activeColumn.set(section);
+					}
+				}}
+			>
+				{#if section === 'home'}
+					<Home />
+				{:else if section === 'projects'}
+					<Projects />
+				{:else}
+					<Blog />
+				{/if}
+			</section>
+		{/each}
+	{:else if smSection === 'home'}
+		<section class="column active" in:fly={{ duration: 700, x: '-100vw' }}>
+			<Home />
+		</section>
+	{:else if smSection === 'projects'}
+		<section class="column active" in:fly={{ duration: 700, x: '-100vw' }}>
+			<Projects />
+		</section>
+	{:else}
+		<section class="column active" in:fly={{ duration: 700, x: '-100vw' }}>
+			<Blog />
+		</section>
+	{/if}
 </div>
+
 <style>
 	.column {
-		transition: all 0.3s ease-in-out;
+		@apply transition-all duration-700 ease-in-out;
 	}
 
 	.column:not(.active) {
