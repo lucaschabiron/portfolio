@@ -1,3 +1,8 @@
+import Image from "next/image";
+import lucas from "@/public/lucas.jpeg";
+import m from "@/public/m.jpeg";
+import kyushu from "@/public/kyushu.jpeg";
+
 export default function Home() {
   const currently = [
     "learning japanese (to live in 🇯🇵)",
@@ -6,10 +11,12 @@ export default function Home() {
     "building an open-source japanese sentence translation ai quiz",
   ];
 
+  const pics = [lucas, kyushu, m];
+
   const past = ["graduated from 🇫🇷 engineering school", "interned @sagau"];
 
   return (
-    <div className="container mx-auto lg:w-2xl">
+    <div className="container lg:mx-auto lg:w-2xl p-4">
       <main className="flex-col">
         <section>
           <h1 className="font-bold text-xl mb-4">hi i&apos;m lucas 🇫🇷😄</h1>
@@ -18,6 +25,17 @@ export default function Home() {
             passioante about building things and i love to learn. <br />
             coding, reading, and watching anime.
           </p>
+        </section>
+        <section className="py-4 flex flex-row space-x-4">
+          {pics.map((pic, i) => (
+            <Image
+              key={i}
+              src={pic}
+              alt="lucas"
+              style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              className={`rounded-lg ${i === 2 ? "hidden md:block" : ""}`}
+            />
+          ))}
         </section>
         <section>
           <h2 className="font-bold text-lg mt-8 mb-4">currently</h2>
