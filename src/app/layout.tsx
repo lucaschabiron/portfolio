@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </Head>
-      <body className="min-h-screen from-neutral-50 to-neutral-400 text-neutral-900 bg-gradient-to-br dark:from-neutral-800 dark:to-neutral-900 dark:text-neutral-100">
+      <body className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100">
         <FixedLogo />
         <div className="flex justify-center container mx-auto p-4">
           <Navbar />
