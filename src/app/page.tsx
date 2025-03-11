@@ -2,6 +2,7 @@ import Image from "next/image";
 import lucas from "@/public/lucas.jpeg";
 import m from "@/public/m.jpeg";
 import kyushu from "@/public/kyushu.jpeg";
+import Link from "next/link";
 
 export default function Home() {
   const currently = [
@@ -15,6 +16,22 @@ export default function Home() {
 
   const past = ["graduated from 🇫🇷 engineering school", "interned @sagau"];
 
+  const random = [
+    {
+      link: "https://www.youtube.com/watch?v=OZ_Bu4dfeMs",
+      text: "The Last Day of High School",
+    },
+    {
+      link: "https://youtu.be/L4XTJao2iLA?si=Nt4Gatb0jBI_TNAH&t=4928",
+      text: "Ghibli 25 Years Concert",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=Iwr1aLEDpe4",
+      text: "Frieren: Beyond Journey's End",
+    },
+    {},
+  ];
+
   return (
     <div className="container lg:mx-auto lg:w-2xl p-4">
       <main className="flex-col">
@@ -23,7 +40,7 @@ export default function Home() {
           <p className="tracking-wider">
             twenty-something software engineer based in france. i&apos;m very
             passionate about building things and i love to learn. <br />
-            coding, reading, and watching anime.
+            right now i&apos;m probably coding, reading, or watching anime.
           </p>
         </section>
         <section className="py-4 flex flex-row space-x-4">
@@ -54,6 +71,20 @@ export default function Home() {
               <p>{item}</p>
             </div>
           ))}
+        </section>
+        <section>
+          <h2 className="font-bold text-lg mt-8 mb-4">random</h2>
+          {random.map((item, i) => (
+            <div key={i} className="mb-2">
+              <a href={item.link} target="_blank">
+                {item.text}
+              </a>
+            </div>
+          ))}
+        </section>
+        <section>
+          <h2 className="font-bold text-lg mt-8 mb-4">my favorites</h2>
+          <Link href="/favs">click here</Link>
         </section>
       </main>
     </div>
