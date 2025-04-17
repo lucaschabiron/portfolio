@@ -17,8 +17,8 @@ export async function generateStaticParams() {
     .map((name) => ({ slug: name.replace(/\.md$/, '') }));
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const postPath = path.join(process.cwd(), 'src/app/writing/posts', `${slug}.md`);
   if (!fs.existsSync(postPath)) {
     notFound();
