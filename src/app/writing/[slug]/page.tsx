@@ -17,9 +17,7 @@ export async function generateStaticParams() {
     .map((name) => ({ slug: name.replace(/\.md$/, '') }));
 }
 
-export default async function PostPage(props: PostPageProps) {
-  // Await params if needed (for latest Next.js)
-  const params = props.params instanceof Promise ? await props.params : props.params;
+export default async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const postPath = path.join(process.cwd(), 'src/app/writing/posts', `${slug}.md`);
   if (!fs.existsSync(postPath)) {
