@@ -5,10 +5,6 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-interface PostPageProps {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'src/app/writing/posts');
   const filenames = fs.readdirSync(postsDirectory);
