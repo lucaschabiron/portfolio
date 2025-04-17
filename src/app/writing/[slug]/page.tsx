@@ -5,10 +5,6 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-interface PostPageProps {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'src/app/writing/posts');
   const filenames = fs.readdirSync(postsDirectory);
@@ -17,8 +13,8 @@ export async function generateStaticParams() {
     .map((name) => ({ slug: name.replace(/\.md$/, '') }));
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const postPath = path.join(process.cwd(), 'src/app/writing/posts', `${slug}.md`);
   if (!fs.existsSync(postPath)) {
     notFound();
