@@ -34,7 +34,7 @@ export default function FixedLogo() {
   });
 
   return (
-    <div className="hidden absolute md:block lg:fixed top-4 left-4 z-50">
+    <div className="hidden absolute md:block lg:fixed top-5 left-5 z-50">
       <Link href="/" className="text-2xl font-bold">
         {stablePart}
         {letters}
