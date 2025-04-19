@@ -30,10 +30,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     dateString = String(data.date);
   }
   return (
-    <div className="mx-auto w-full max-w-2xl lg:w-1/2 p-6 bg-white rounded shadow-sm">
+    <div className="mx-auto w-full max-w-2xl lg:w-1/2 p-6 bg-white dark:bg-zinc-900 rounded shadow-sm dark:shadow-zinc-800">
       <h1 className="text-4xl font-bold mb-2 text-center leading-tight">{data.title}</h1>
-      <p className="text-gray-500 text-sm mb-8 text-center">{dateString}</p>
-      <article className="prose prose-lg mx-auto text-justify">
+      <p className="text-gray-500 dark:text-gray-400 text-sm mb-8 text-center">{dateString}</p>
+      <article className="prose prose-lg dark:prose-invert mx-auto text-justify">
         <ReactMarkdown>{content}</ReactMarkdown>
       </article>
     </div>
