@@ -18,12 +18,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="font-sans">
       <Head>
-      <Script defer src="https://cloud.umami.is/script.js" data-website-id="87353d6e-d6cf-425e-9192-9e418ae16dc8"/>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
       </Head>
+      <Script defer src="https://cloud.umami.is/script.js" data-website-id="87353d6e-d6cf-425e-9192-9e418ae16dc8"/>
       <body className="bg-neutral-50 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100">
         <div className="flex flex-col min-h-screen">
           <FixedLogo />
