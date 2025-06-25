@@ -17,6 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="font-sans">
       <Head>
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="87353d6e-d6cf-425e-9192-9e418ae16dc8"></script>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
