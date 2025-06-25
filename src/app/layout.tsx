@@ -3,6 +3,7 @@ import { Navbar } from "@/components/global/nav";
 import FixedLogo from "@/components/global/FixedLogo";
 import Footer from "@/components/global/Footer";
 import Head from "next/head";
+import Script from 'next/script'
 
 export const metadata = {
   title: "lucas chabiron",
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="font-sans">
       <Head>
-      <script defer src="https://cloud.umami.is/script.js" data-website-id="87353d6e-d6cf-425e-9192-9e418ae16dc8"></script>
+      <Script defer src="https://cloud.umami.is/script.js" data-website-id="87353d6e-d6cf-425e-9192-9e418ae16dc8"/>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
