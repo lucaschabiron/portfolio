@@ -1,14 +1,14 @@
 // Function to get all favorite images from the API
 export async function getFavoriteImages(): Promise<string[]> {
   try {
-    const response = await fetch('/api/favorites');
+    const response = await fetch("/api/favorites");
     if (!response.ok) {
-      throw new Error('Failed to fetch favorite images');
+      throw new Error("Failed to fetch favorite images");
     }
     const images = await response.json();
     return images;
   } catch (error) {
-    console.error('Error fetching favorite images:', error);
+    console.error("Error fetching favorite images:", error);
     return [];
   }
 }

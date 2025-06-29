@@ -23,10 +23,10 @@ export default function FavsPage() {
           src: `/favourites/images/${filename}`,
           filename,
         }));
-        
+
         setFavoriteItems(shuffleArray(items));
       } catch (error) {
-        console.error('Failed to load favorite images:', error);
+        console.error("Failed to load favorite images:", error);
         setFavoriteItems([]);
       } finally {
         setIsLoading(false);
@@ -43,7 +43,10 @@ export default function FavsPage() {
   if (favoriteItems.length === 0) {
     return (
       <div className="container mx-auto max-w-6xl p-4">
-        <FavoriteHeader title="favorites" description="No images found in the favorites directory." />
+        <FavoriteHeader
+          title="favorites"
+          description="No images found in the favorites directory."
+        />
       </div>
     );
   }

@@ -18,7 +18,6 @@ export default function FavoriteGrid({ items }: FavoriteGridProps) {
           key={item.id}
           id={item.id}
           src={item.src}
-          filename={item.filename}
         />
       ))}
     </div>
