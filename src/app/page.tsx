@@ -9,7 +9,7 @@ export default function Home() {
     "learning japanese (to live in 🇯🇵)",
     "working as an intern @aprr",
     "opening my freelance business",
-    "building an open-source japanese sentence translation ai quiz",
+    "building @sifter",
   ];
 
   const pics = [lucas, kyushu, m];
