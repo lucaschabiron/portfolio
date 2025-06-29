@@ -1,46 +1,52 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import fs from "fs";
+import path from "path";
 import {
   FavoriteGrid,
   FavoriteHeader,
-  LoadingState,
-  getFavoriteImages,
   shuffleArray,
   type FavoriteItemType,
 } from "@/components/favs";
 
-export default function FavsPage() {
-  const [favoriteItems, setFavoriteItems] = useState<FavoriteItemType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+// Server-side function to get favorite images directly
+async function getFavoriteImagesServer(): Promise<string[]> {
+  try {
+    const favoritesPath = path.join(
+      process.cwd(),
+      "public",
+      "favourites",
+      "images"
+    );
 
-  useEffect(() => {
-    async function loadFavorites() {
-      try {
-        const images = await getFavoriteImages();
-        const items = images.map((filename, index) => ({
-          id: index + 1,
-          src: `/favourites/images/${filename}`,
-          filename,
-        }));
-
-        setFavoriteItems(shuffleArray(items));
-      } catch (error) {
-        console.error("Failed to load favorite images:", error);
-        setFavoriteItems([]);
-      } finally {
-        setIsLoading(false);
-      }
+    if (!fs.existsSync(favoritesPath)) {
+      return [];
     }
 
-    loadFavorites();
-  }, []);
+    const files = fs.readdirSync(favoritesPath);
+    const imageExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
 
-  if (isLoading) {
-    return <LoadingState />;
+    const imageFiles = files.filter((file) =>
+      imageExtensions.some((ext) => file.toLowerCase().endsWith(ext))
+    );
+
+    return imageFiles;
+  } catch (error) {
+    console.error("Error reading favorites directory:", error);
+    return [];
   }
+}
 
-  if (favoriteItems.length === 0) {
+export default async function FavsPage() {
+  const images = await getFavoriteImagesServer();
+
+  const favoriteItems: FavoriteItemType[] = images.map((filename, index) => ({
+    id: index + 1,
+    src: `/favourites/images/${filename}`,
+    filename,
+  }));
+
+  const shuffledItems = shuffleArray(favoriteItems);
+
+  if (shuffledItems.length === 0) {
     return (
       <div className="container mx-auto max-w-6xl p-4">
         <FavoriteHeader
@@ -54,7 +60,7 @@ export default function FavsPage() {
   return (
     <div className="container mx-auto max-w-6xl p-4">
       <FavoriteHeader />
-      <FavoriteGrid items={favoriteItems} />
+      <FavoriteGrid items={shuffledItems} />
     </div>
   );
 }
