@@ -1,11 +1,35 @@
 {
   "currently": [
-    "learning japanese (to live in 🇯🇵)",
-    "working as an intern @aprr",
-    "opening my freelance business",
-    "building @sifter"
+    {
+      "text": "learning japanese (to live in 🇯🇵)"
+    },
+    {
+      "text": "working as an intern @aprr",
+      "links": {
+        "@aprr": "https://aprr.com"
+      }
+    },
+    {
+      "text": "opening my freelance business"
+    },
+    {
+      "text": "building @sifter",
+      "links": {
+        "@sifter": "https://sifter.com"
+      }
+    }
   ],
-  "past": ["graduated from 🇫🇷 engineering school", "interned @sagau"],
+  "past": [
+    {
+      "text": "graduated from 🇫🇷 engineering school"
+    },
+    {
+      "text": "interned @sagau",
+      "links": {
+        "@sagau": "https://sagau.com"
+      }
+    }
+  ],
   "random": [
     {
       "link": "https://www.youtube.com/watch?v=OZ_Bu4dfeMs",
