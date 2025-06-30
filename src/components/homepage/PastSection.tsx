@@ -1,5 +1,12 @@
+import LinkedText from "@/components/global/LinkedText";
+
+interface PastItem {
+  text: string;
+  links?: Record<string, string>;
+}
+
 interface PastSectionProps {
-  items: string[];
+  items: PastItem[];
 }
 
 export default function PastSection({ items }: PastSectionProps) {
@@ -9,7 +16,7 @@ export default function PastSection({ items }: PastSectionProps) {
       {items.map((item, i) => (
         <div key={i} className="mb-2">
           <h3 className="font-light text-gray-500 font-mono">0{i + 1}</h3>
-          <p>{item}</p>
+          <LinkedText text={item.text} links={item.links} />
         </div>
       ))}
     </section>
