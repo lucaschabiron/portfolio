@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Sifter",
+    "description": "An AI curated newsletter generator",
+    "status": "Active",
+    "tags": ["Typescript", "AI", "SaaS"],
+    "link": "https://sifter-app.com"
+  },
+  {
+    "title": "LEL text correction",
+    "description": "OCR text correction using LLMs (made during my internship at CNRS)",
+    "status": "Finished",
+    "tags": ["Python", "LLM", "open-source"],
+    "link": "https://github.com/lucaschabiron/lel_llm"
+  }
+]
