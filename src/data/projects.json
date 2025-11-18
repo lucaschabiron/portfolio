@@ -12,5 +12,12 @@
     "status": "Finished",
     "tags": ["Python", "LLM", "open-source"],
     "link": "https://github.com/lucaschabiron/lel_llm"
+  },
+  {
+    "title": "speakinjapanese.me",
+    "description": "A small web app to practice building Japanese sentences",
+    "status": "Active",
+    "tags": ["Next.js", "AI", "Language Learning"],
+    "link": "https://speakinjapanese.me"
   }
 ]
