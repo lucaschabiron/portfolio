@@ -1,14 +1,25 @@
 import "./globals.css";
+import { DM_Sans } from "next/font/google";
 import { Navbar } from "@/components/global/nav";
 import FixedLogo from "@/components/global/FixedLogo";
 import Footer from "@/components/global/Footer";
-import Head from "next/head";
 import { ThemeProvider } from "@/components/global/ThemeProvider";
 import Script from "next/script";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata = {
   title: "lucas chabiron",
   description: "lucas , software engineer",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 interface RootLayoutProps {
@@ -17,13 +28,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="font-sans" suppressHydrationWarning>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-      </Head>
+    <html lang="en" className={`${dmSans.variable} font-sans`} suppressHydrationWarning>
       <Script
         defer
         src="https://cloud.umami.is/script.js"
