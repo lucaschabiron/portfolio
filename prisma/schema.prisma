@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model HomepageItem {
+  id        Int     @id @default(autoincrement())
+  section   String  // "currently", "past", "random"
+  text      String
+  link      String? // used by "random" section items
+  linkKey   String? // @mention key, e.g. "@sifter"
+  linkUrl   String? // @mention URL
+  sortOrder Int     @default(0)
+
+  @@index([section])
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  status      String   // "Active" or "Finished"
+  tags        String[] // PostgreSQL array
+  link        String
+  sortOrder   Int      @default(0)
+}
+
+model Post {
+  slug        String   @id
+  title       String
+  description String   @default("")
+  date        DateTime
+  content     String   // markdown body (without frontmatter)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

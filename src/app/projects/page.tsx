@@ -1,7 +1,11 @@
 import { ProjectsList, ProjectsHeader } from "@/components/projects";
-import projects from "@/data/projects.json";
+import { prisma } from "@/lib/prisma";
 
-export default function ProjectsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ProjectsPage() {
+  const projects = await prisma.project.findMany({ orderBy: { sortOrder: "asc" } });
+
   return (
     <div className="container lg:mx-auto lg:w-2xl p-4">
       <ProjectsHeader />

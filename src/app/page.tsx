@@ -1,15 +1,7 @@
 import lucas from "@/public/lucas.jpeg";
 import m from "@/public/m.jpeg";
 import kyushu from "@/public/kyushu.jpeg";
-import homepageData from "@/data/homepage.json";
-
-type HomeItem = { text: string; links?: Record<string, string> };
-type RandomItem = { link: string; text: string };
-interface HomeData {
-  currently: HomeItem[];
-  past: HomeItem[];
-  random: RandomItem[];
-}
+import { prisma } from "@/lib/prisma";
 import {
   HeroSection,
   PhotoGallery,
@@ -19,8 +11,29 @@ import {
   FavoritesSection,
 } from "@/components/homepage";
 
-export default function Home() {
-  const { currently, past, random } = homepageData as HomeData;
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const items = await prisma.homepageItem.findMany({ orderBy: { sortOrder: "asc" } });
+
+  const currently = items
+    .filter((i) => i.section === "currently")
+    .map((i) => ({
+      text: i.text,
+      ...(i.linkKey && i.linkUrl ? { links: { [i.linkKey]: i.linkUrl } } : {}),
+    }));
+
+  const past = items
+    .filter((i) => i.section === "past")
+    .map((i) => ({
+      text: i.text,
+      ...(i.linkKey && i.linkUrl ? { links: { [i.linkKey]: i.linkUrl } } : {}),
+    }));
+
+  const random = items
+    .filter((i) => i.section === "random")
+    .map((i) => ({ text: i.text, link: i.link! }));
+
   const pics = [lucas, kyushu, m];
 
   return (
